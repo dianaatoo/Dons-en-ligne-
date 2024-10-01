@@ -1,5 +1,3 @@
-
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -91,11 +89,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 				if($statut=='gestionnaire'){
                     header("Location:indexe.php");
 				}
-				elseif($statut=='benevole');
+				elseif($statut=='benevole')
 				{
 					header("Location:benevole.php");
 				}
-				
+			
 				elseif($statut=='admin'){
 					header("Location:admin.php");
 				}

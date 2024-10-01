@@ -46,36 +46,96 @@
         <div class="statistiques">
             <div class="statistique">
                 <h2><?php
-                    include_once"conn.php";
-                    $stmt = $con->prepare("SELECT COUNT (id) FROM association");
-                    $stmt->bind_param("s", $id);
-                    $stmt->execute();
-                    ?></h2>
+    include_once "conn.php";
+    
+    // Préparer la requête SQL
+    $stmt = $con->prepare("SELECT COUNT(id) FROM annone WHERE statut ='accepter'");
+    
+    // Exécuter la requête
+    $stmt->execute();
+    
+    // Récupérer le résultat
+    $stmt->bind_result($count);
+    $stmt->fetch();
+    
+    // Afficher le résultat
+    echo "" . $count;
+
+    // Fermer la requête
+    $stmt->close();
+?>
+</h2>
                 <p>Annonces Actives</p>
             </div>
             <div class="statistique1">
-                <h2>45</h2>
+                <h2><?php
+    include_once "conn.php";
+    
+    // Préparer la requête SQL
+    $stmt = $con->prepare("SELECT COUNT(idA) FROM association");
+    
+    // Exécuter la requête
+    $stmt->execute();
+    
+    // Récupérer le résultat
+    $stmt->bind_result($count);
+    $stmt->fetch();
+    
+    // Afficher le résultat
+    echo "" . $count;
+
+    // Fermer la requête
+    $stmt->close();
+?></h2>
                 <p>Associations</p>
             </div>
             <div class="statistique2">
                 <h2>
                 <?php
-                    include_once"conn.php";
-                    $stmt = $con->prepare("SELECT COUNT (idA) FROM association ");
-                    $stmt->bind_param("s", $idA);
-                    $stmt->execute();
-                    ?>
+    include_once "conn.php";
+    
+    // Préparer la requête SQL
+    $stmt = $con->prepare("SELECT COUNT(idd) FROM dons");
+    
+    // Exécuter la requête
+    $stmt->execute();
+    
+    // Récupérer le résultat
+    $stmt->bind_result($count);
+    $stmt->fetch();
+    
+    // Afficher le résultat
+    echo "" . $count;
+
+    // Fermer la requête
+    $stmt->close();
+?>
+
                 </h2>
                 <p>Dons Recueillis</p>
             </div>
             <div class="statistique3">
                 <h2>
                     <?php
-                    include_once"conn.php";
-                    $stmt = $con->prepare("SELECT COUNT (idiong) FROM ong ");
-                    $stmt->bind_param("s", $idong);
-                    $stmt->execute();
-                    ?>
+    include_once "conn.php";
+    
+    // Préparer la requête SQL
+    $stmt = $con->prepare("SELECT COUNT(idong) FROM ong");
+    
+    // Exécuter la requête
+    $stmt->execute();
+    
+    // Récupérer le résultat
+    $stmt->bind_result($count);
+    $stmt->fetch();
+    
+    // Afficher le résultat
+    echo "" . $count;
+
+    // Fermer la requête
+    $stmt->close();
+?>
+
                 </h2>
                 <p>ONG</p>
             </div>
@@ -93,13 +153,13 @@
                 <th>Id</th>
                 <th>agreement </th>
                 <th>NomA</th>
-                <th>Sigle</th>
                 <th>Region</th>
+                <th>Sigle</th>
                 <th>DEpartementn</th>
                 <th>Arrondissement</th>
-                <th>cible</th>
-                <th>numeroR</th>
-                <th>date</th>
+                <th>Date</th>
+                <th>numero</th>
+                <th>Cible</th>
                 <th>contrat</th>
                 <th>dateE</th>
             </tr>
@@ -115,8 +175,9 @@ else{
         ?>
           <tr>
             <td><?=$row['id']?></td>
+            <td><?=$row['agreement']?></td>
         		<td><?=$row['nomA']?></td>
-               <td><?=$row['Sigle']?></td>
+               <td><?=$row['sigle']?></td>
                <td><?=$row['region']?></td>
                <td><?=$row['departement']?></td>
                <td><?=$row['arrondissement']?></td>
@@ -174,18 +235,18 @@ else{
           <tr>
             <td><?=$row['idA']?></td>
             	<td><?=$row['agreement']?></td>
-        		<td><?=$row['nomAS']?></td>
-               <td><?=$row['cigleA']?></td>
+        		<td><?=$row['nomA']?></td>
+               <td><?=$row['sigle']?></td>
                <td><?=$row['region']?></td>
                <td><?=$row['departement']?></td>
                <td><?=$row['arrondissement']?></td>
                <td><?=$row['cible']?></td>
                <td><?=$row['nomR']?></td>
-               <td><?=$row['numero']?></td>
+               <td><?=$row['numeroR']?></td>
                <td><?=$row['date']?></td>
                <td><?=$row['contrat']?></td>
-               <td><a href ="modifierA.php?idong=<?=$row ['idong']?>" class="bm"> Modifier </a> </td>
-                <td><a href ="supprimerA.php?idong=<?=$row ['idong']?>" class="bm"> Supprimer </a> </td>
+               <td><a href ="modifierA.php?idA=<?=$row ['idA']?>" class="bm"> Modifier </a> </td>
+                <td><a href ="supprimerA.php?idA=<?=$row ['idA']?>" class="bm"> Supprimer </a> </td>
         </tr> <?php
 
     }
@@ -216,26 +277,37 @@ else{
         </thead>
 
         <tbody>
-        	<tr>
-        		<td>1</td>
-        		<td>Vetement</td>
-                <td>Chaussure</td>
-                <td>15</td>
-                <td>01/02/2024</td>
-                <td class="accepter">Accepter</td>
-                <td><a class="bm" >Modifier</a>
-                	<a class="bs" >Supprimer</a></td>
-            </tr>
-            <tr>
-            	<td>2</td>
-        		<td>Nouriture</td>
-                <td>Bannane</td>
-                <td>120</td>
-               <td>01/02/2024</td>
-                <td class="rejeter">Rejeter</td>
-                <td><a class="bm" >Modifier</a>
-                	<a class="bs" >Supprimer</a></td>
-            </tr>
+        <!--    
+        <?php
+include_once"conn.php";
+$req=mysqli_query($con ,"SELECT * FROM dons");
+if(mysqli_num_rows($req)==0){
+    echo"Aucune association";
+}
+else{
+    while($row=mysqli_fetch_assoc($req)){
+        ?>
+          <tr>
+            <td><?=$row['idA']?></td>
+            	<td><?=$row['agreement']?></td>
+        		<td><?=$row['nomAS']?></td>
+               <td><?=$row['cigleA']?></td>
+               <td><?=$row['region']?></td>
+               <td><?=$row['departement']?></td>
+               <td><?=$row['arrondissement']?></td>
+               <td><?=$row['cible']?></td>
+               <td><?=$row['nomR']?></td>
+               <td><?=$row['numero']?></td>
+               <td><?=$row['date']?></td>
+               <td><?=$row['contrat']?></td>
+               <td><a href ="modifierA.php?idong=<?=$row ['idong']?>" class="bm"> Modifier </a> </td>
+                <td><a href ="supprimerA.php?idong=<?=$row ['idong']?>" class="bm"> Supprimer </a> </td>
+        </tr> <?php
+
+    }
+}
+?>
+    -->       
 
         </tbody>
     </table>

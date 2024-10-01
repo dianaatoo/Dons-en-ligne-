@@ -92,18 +92,18 @@
 
   // Vérification de l'existence de 'idong' dans l'URL
   if (isset($_GET['idA'])) {
-      $idong = $_GET['idA'];
+      $idA = $_GET['idA'];
       
       // Récupération des données de l'ONG
-      $req = mysqli_query($con, "SELECT * FROM association WHERE idA = $idA");
+      $req = mysqli_query($con, "SELECT * FROM association WHERE idA = '$idA'");
       $row = mysqli_fetch_assoc($req);
   }
 
   // Traitement du formulaire
   if ($_SERVER["REQUEST_METHOD"] == "POST") {
       $agreement = $_POST['agreement'];
-      $nomAS = $_POST['nomAS'];
-      $cigleA = $_POST['cigleA'];
+      $nomA = $_POST['nomA'];
+      $sigle = $_POST['sigle'];
       $region = $_POST['region'];
       $departement = $_POST['departement'];
       $arrondissement = $_POST['arrondissement'];
@@ -114,7 +114,7 @@
       $contrat = $_POST['contrat'];
 
       // Mise à jour de l'ONG
-      $update_query = "UPDATE association SET agreement='$agreement', nomAS='$nomAS',cigleA='$cigleA', region='$region',departement='$departement',arrondissement='$arrondissement', cible='$cible', nomR='$nomR', numero='$numero', date='$date', contrat='$contrat WHERE idA=$idA";
+      $update_query = "UPDATE association SET agreement='$agreement',nomA='$nomA',sigle='$sigle', region='$region',departement='$departement',arrondissement='$arrondissement', cible='$cible', nomR='$nomR', numeroR='$numero', date='$date', contrat='$contrat' WHERE idA='$idA'";
       $update_result = mysqli_query($con, $update_query);
 
       if ($update_result) {
@@ -135,11 +135,11 @@
       </div>
       <div>
         <label for=" nomAS"> nomAS :</label>
-        <input type="text" id=" nomAS" name=" nomAS" required value="<?= isset($row[' nomAS']) ? $row[' nomAS'] : ''; ?>">
+        <input type="text" id=" nomAS" name="nomA" required value="<?= isset($row['nomA']) ? $row['nomA'] : ''; ?>">
       </div>
       <div>
         <label for="cigleA">cigleA :</label>
-        <input type="text" id="cigleA" name="cigleA" required value="<?= isset($row['cigleA']) ? $row['cigleA'] : ''; ?>">
+        <input type="text" id="cigleA" name="sigle" required value="<?= isset($row['sigle']) ? $row['sigle'] : ''; ?>">
       </div>
       <div>
         <label for="region">region :</label>
@@ -159,11 +159,11 @@
       </div>
       <div>
         <label for=" nomR"> nomR :</label>
-        <input type="text" id=" nomR" name=" nomR" required value="<?= isset($row[' nomR']) ? $row[' nomR'] : ''; ?>">
+        <input type="text" id=" nomR" name="nomR" required value="<?= isset($row['nomR']) ? $row['nomR'] : ''; ?>">
       </div>
       <div>
         <label for="numero">numero :</label>
-        <input type="text" id="numero" name="numero" required value="<?= isset($row['numero']) ? $row['numero'] : ''; ?>">
+        <input type="text" id="numero" name="numero" required value="<?= isset($row['numeroR']) ? $row['numeroR'] : ''; ?>">
       </div>
       <div>
         <label for="date">date :</label>

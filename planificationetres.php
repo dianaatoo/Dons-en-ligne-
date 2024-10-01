@@ -155,22 +155,22 @@
 <div class="container">
     <div class="association-info">
         <h2>Informations sur l'Association</h2>
-        <form id="association-form" action="traitementres.php">
+        <form id="association-form" action="traitementres.php" method="POST">
             <label for="nom-association">Nom de l'Association :</label>
             <input type="text" id="nom-association" name="nom-association" onblur="fetchAssociationDetails()" placeholder="Saisissez le nom de l'association" required>
             
             <label for="description-association">Sigle :</label>
-            <textarea id="description-association" name="description-association" rows="4"></textarea>
+            <textarea id="description-association" name="sigle" rows="4"></textarea>
             
             <label for="contact-association">Cible  :</label>
-            <input type="text" id="contact-association" name="contact-association">
+            <input type="text" id="contact-association" name="cible">
             
             <label for="site-web-association">region :</label>
-            <input type="url" id="site-web-association" name="site-web-association">
+            <input type="text" id="site-web-association" name="region">
             <label for="site-web-association">departement :</label>
-            <input type="url" id="site-web-association" name="site-web-association">
+            <input type="text" id="site-web-association" name="departement">
             <label for="site-web-association">arrondissement :</label>
-            <input type="url" id="site-web-association" name="site-web-association">
+            <input type="text" id="site-web-association" name="arrondissement">
         
     </div>
 
