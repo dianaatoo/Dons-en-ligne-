@@ -144,11 +144,28 @@ padding: 5px;
 
 <div class="container">
 
-<form method="POST" action="creerA.php">
+<form method="POST" action="traitementas.php">
 
 <h1>Créer une Association</h1>
 
 <div>
+
+<div>
+
+<label for="numero_agreement">Email :</label>
+
+<input type="email" id="agreement" name="email" required>
+
+</div>
+
+<div>
+
+<label for="numero_agreement">Mot De Passe :</label>
+
+<input type="password" id="agreement" name="password" required>
+
+</div>
+
 
 <div>
 
@@ -162,7 +179,7 @@ padding: 5px;
 
 <label for="nomAS">Nom de l'association :</label>
 
-<input type="text" id="nomAS" name="nomAS" required>
+<input type="text" id="nomA" name="nomA" required>
 
 </div>
 
@@ -170,7 +187,7 @@ padding: 5px;
 
 <label for="cigleA">Cigle :</label>
 
-<input type="text" id="cigleA" name="cigleA" required>
+<input type="text" id="cigleA" name="sigle" required>
 
 </div>
 

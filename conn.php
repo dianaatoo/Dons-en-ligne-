@@ -4,7 +4,7 @@ if(!$con){
 echo"erreur de connexion à la BD";
 }
 else{
-   echo "connexion okay";
+  // echo "connexion okay";
 }
 
 ?>

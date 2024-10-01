@@ -145,12 +145,25 @@ padding: 5px;
 
 <div class="container">
 
-<form method="POST" action="creation_ong.php">
+<form method="POST" action="traitementong.php">
 
 <h1>Créer une ONG</h1>
 
 <div>
+<div>
 
+<label for="email">email :</label>
+
+<input type="email" id="email" name="email" required>
+
+</div>
+<div>
+
+<label for="mdp">Mot de passe :</label>
+
+<input type="password" id="password" name="password" required>
+
+</div>
 <div>
 
 <label for="mission">Mission :</label>
