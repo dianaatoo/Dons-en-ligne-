@@ -1,3 +1,31 @@
+<?php
+$uploadDir = 'uploads/'; // Dossier où vous souhaitez enregistrer l'image
+
+// Vérifier si le dossier existe, sinon le créer
+if (!is_dir($uploadDir)) {
+    mkdir($uploadDir, 0777, true);
+}
+
+$message = ''; // Variable pour le message de statut
+
+if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_FILES['image'])) {
+    // Vérifiez si un fichier a été téléchargé sans erreur
+    if ($_FILES['image']['error'] == UPLOAD_ERR_OK) {
+        $uploadFile = $uploadDir . basename($_FILES['image']['name']);
+        
+        // Déplacez le fichier téléchargé vers le dossier d'uploads
+        if (move_uploaded_file($_FILES['image']['tmp_name'], $uploadFile)) {
+            // Rediriger vers la page d'origine avec un message de succès
+            header("Location: bienfaiteur.php?success=1");
+            exit;
+        } else {
+            $message = 'Erreur lors de l\'upload de l\'image.';
+        }
+    } else {
+        $message = 'Erreur dans le téléchargement de l\'image.';
+    }
+}
+?>
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -153,12 +181,34 @@
         </div>
 
         <!-- Bloc Partager les Médias -->
-        <div class="share-media">
+         <!-- Bloc Partager les Médias -->
+         <div class="share-media">
             <h4>Partager les Médias</h4>
-            <input type="file" accept="image/*" multiple>
-            <br>
-            <button class="btn btn-primary">Partager</button>
+            <form action="bienfaiteur.php" method="post" enctype="multipart/form-data">
+                <input type="file" name="image" accept="image/*" required>
+                <br>
+                <button type="submit" class="btn btn-primary">Partager</button>
+            </form>
+            <?php if (isset($_GET['success'])): ?>
+                <p style="color: green;">Image téléchargée avec succès !</p>
+            <?php elseif (!empty($message)): ?>
+                <p style="color: red;"><?php echo htmlspecialchars($message); ?></p>
+            <?php endif; ?>
         </div>
+
+        <h4 class="text-center mt-4">Images Partagées</h4>
+        <div class="image-container">
+            <?php if (!empty($images)): ?>
+                <?php foreach ($images as $image): ?>
+                    <div class="image-item">
+                        <img src="<?php echo htmlspecialchars($image); ?>" alt="Image">
+                    </div>
+                <?php endforeach; ?>
+            <?php else: ?>
+                <p>Aucune image partagée.</p>
+            <?php endif; ?>
+        </div>
+    </div>
     </div>
 
     <!-- Footer Start -->

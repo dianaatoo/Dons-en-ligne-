@@ -151,17 +151,20 @@
     	<thead>
     		<tr>
                 <th>Id</th>
-                <th>agreement </th>
+                
                 <th>NomA</th>
                 <th>Region</th>
                 <th>Sigle</th>
-                <th>DEpartementn</th>
+                <th>Departementn</th>
                 <th>Arrondissement</th>
                 <th>Date</th>
-                <th>numero</th>
+                <th>Zone</th>
                 <th>Cible</th>
-                <th>contrat</th>
+                <th>Categorie</th>
                 <th>dateE</th>
+                <th>Description</th>
+                <th>Statut</th>
+                <th>Action</th>
             </tr>
         </thead>
         <?php
@@ -175,17 +178,17 @@ else{
         ?>
           <tr>
             <td><?=$row['id']?></td>
-            <td><?=$row['agreement']?></td>
+            
         		<td><?=$row['nomA']?></td>
+                <td><?=$row['region']?></td>
                <td><?=$row['sigle']?></td>
-               <td><?=$row['region']?></td>
                <td><?=$row['departement']?></td>
                <td><?=$row['arrondissement']?></td>
-               <td><?=$row['zone']?></td>
-               <td><?=$row['datep']?></td>
                <td><?=$row['datel']?></td>
+               <td><?=$row['zone']?></td>
                <td><?=$row['titre']?></td>
                <td><?=$row['categorie']?></td>
+               <td><?=$row['datep']?></td>
                <td><?=$row['description']?></td>
                <td><?=$row['statut']?></td>
                <td><a href ="statutannonce.php?id=<?=$row ['id']?>" class="bm"> Accepter </a> </td>
@@ -236,8 +239,8 @@ else{
             <td><?=$row['idA']?></td>
             	<td><?=$row['agreement']?></td>
         		<td><?=$row['nomA']?></td>
+                <td><?=$row['region']?></td>
                <td><?=$row['sigle']?></td>
-               <td><?=$row['region']?></td>
                <td><?=$row['departement']?></td>
                <td><?=$row['arrondissement']?></td>
                <td><?=$row['cible']?></td>
@@ -267,17 +270,31 @@ else{
     	<thead>
     		<tr>
                 <th>Id</th>
-                <th>Type de ressource</th>
-                <th>Nom de la ressource</th>
-                <th>Qantité</th>
-                	<th>Date</th>
-                	<th>Statut</th>
-                <th>Actions</th>
+                <th>Nom-Association</th>
+                <th>Sigle</th>
+                <th>cible</th>
+                <th>region</th>
+                <th>Departemet</th>
+                <th>Arrondissement</th>
+                <th>Type-ressources</th>
+                <th>Type-ressources</th>
+                <th>Type-ressources</th>
+                <th>Quantite</th>
+                <th>Quantite</th>
+                <th>Quantite</th>
+                <th>Nom-Ressource</th>
+                <th>Nom-Ressource</th>
+                <th>Nom-Ressource</th>
+                <th>Date</th>
+                <th>Heure</th>
+                <th>Nombre de personne</th>
+                
+            
             </tr>
         </thead>
 
         <tbody>
-        <!--    
+   
         <?php
 include_once"conn.php";
 $req=mysqli_query($con ,"SELECT * FROM dons");
@@ -288,26 +305,31 @@ else{
     while($row=mysqli_fetch_assoc($req)){
         ?>
           <tr>
-            <td><?=$row['idA']?></td>
-            	<td><?=$row['agreement']?></td>
-        		<td><?=$row['nomAS']?></td>
-               <td><?=$row['cigleA']?></td>
+            <td><?=$row['idd']?></td>
+            	<td><?=$row['nom_association']?></td>
+        		<td><?=$row['sigle']?></td>
+               <td><?=$row['cible']?></td>
                <td><?=$row['region']?></td>
                <td><?=$row['departement']?></td>
                <td><?=$row['arrondissement']?></td>
-               <td><?=$row['cible']?></td>
-               <td><?=$row['nomR']?></td>
-               <td><?=$row['numero']?></td>
+               <td><?=$row['type_ressource1']?></td>
+               <td><?=$row['type_ressource2']?></td>
+               <td><?=$row['type_ressource3']?></td>
+               <td><?=$row['quantite1']?></td>
+               <td><?=$row['quantite2']?></td>
+               <td><?=$row['quantite3']?></td>
+               <td><?=$row['nom_ressource1']?></td>
+               <td><?=$row['nom_ressource2']?></td>
+               <td><?=$row['nom_ressource3']?></td>
                <td><?=$row['date']?></td>
-               <td><?=$row['contrat']?></td>
-               <td><a href ="modifierA.php?idong=<?=$row ['idong']?>" class="bm"> Modifier </a> </td>
-                <td><a href ="supprimerA.php?idong=<?=$row ['idong']?>" class="bm"> Supprimer </a> </td>
+               <td><?=$row['heure']?></td>
+               <td><?=$row['nombre_personnes']?></td>
+               
         </tr> <?php
 
     }
 }
 ?>
-    -->       
 
         </tbody>
     </table>
@@ -330,6 +352,8 @@ else{
                 <th>date_creation</th>
                 <th>type_contrat</th>
                 <th>date_enregistrementO</th>
+                <th>Modifier</th>
+                <th>Supprimer</th>
             </tr>
         </thead>
      

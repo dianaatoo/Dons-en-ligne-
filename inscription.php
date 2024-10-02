@@ -4,8 +4,9 @@
 	<title>INSCRIPTION</title>
 	<style>
 		body {
-			background-color: #ADD8E6; /* Bleu ciel */
-			font-family: Arial, sans-serif;
+			background-color: white; /* Bleu ciel */
+			font-family: times new roman;
+            background-image:url(guyt.jpg);
 		}
 		
 		main {
@@ -148,56 +149,5 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 		</div>
 		
 	</main>
-	<!-- Footer Start -->
-    <div class="container-fluid bg-dark text-light mt-5 wow fadeInUp" data-wow-delay="0.1s">
-        <div class="container">
-            <div class="row gx-5">
-                <div class="col-lg-4 col-md-6 footer-about">
-                    <div class="d-flex flex-column align-items-center justify-content-center text-center h-100 bg-primary p-4">
-                        <a href="index.html" class="navbar-brand">
-                            <h2 class="m-0 text-white"><i class="fa-duotone fa-solid fa-hands-holding-child"></i>Solidarité et Entraide</h2>
-                        </a>
-                        <p class="mt-3 mb-4">"Entraide et solidarité pour des personnes socialement vulnerables ".</p>
-                    </div>
-                </div>
-                <div class="col-lg-8 col-md-6">
-                    <div class="row gx-5">
-                        <div class="col-lg-4 col-md-12 pt-5 mb-5">
-                            <h3 class="text-light mb-0">Nos contacts</h3>
-                            <div class="d-flex mb-2">
-                                <i class="bi bi-geo-alt text-primary me-2"></i>
-                                <p class="mb-0">MINAS-Poste Central, Yaoundé, CAMEROUN</p>
-                            </div>
-                            <div class="d-flex mb-2">
-                                <i class="bi bi-envelope-open text-primary me-2"></i>
-                                <p class="mb-0">cabinetminas@yahoo.com</p>
-                            </div>
-                            <div class="d-flex mb-2">
-                                <i class="bi bi-telephone text-primary me-2"></i>
-                                <p class="mb-0">+222 22 29 58 </p>
-                            </div>
-                            <div class="d-flex mb-2">
-                                <i class="bi bi-FAX text-primary me-2"></i>
-                                <p class="mb-0">+222 23 11 21 </p>
-                            </div>
-                            
-                        </div>
-                        <div class="col-lg-4 col-md-12 pt-0 pt-lg-5 mb-5">
-                            <h3 class="text-light mb-0">Nos Pages</h3>
-                            <div class="link-animated d-flex  justify-content-start">
-                            <a class="btn btn-primary btn-square me-2" href="#"><i class="fab fa-twitter fw-normal"></i></a>
-                                <a class="btn btn-primary btn-square me-2" href="#"><i class="fab fa-facebook-f fw-normal"></i></a>
-                                <a class="btn btn-primary btn-square me-2" href="#"><i class="fab fa-linkedin-in fw-normal"></i></a>
-                                <a class="btn btn-primary btn-square" href="#"><i class="fab fa-instagram fw-normal"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- Footer End -->
-	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
-	
 </body>
 </html>

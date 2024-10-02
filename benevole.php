@@ -138,7 +138,7 @@
             <div class="options-container">
                 <div class="option-block">
                     <div class="option-title">Voir les annonces</div>
-                    <a class="btn btn-link" href="annonce.php">Accéder</a>
+                    <a class="btn btn-link" href="afficheannonce.php">Accéder</a>
                 </div>
                 <div class="option-block1">
                     <div class="option-title">Voir les médias</div>

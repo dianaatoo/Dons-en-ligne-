@@ -75,9 +75,41 @@
 		button:hover {
 			background-color: #87CEEB; /* Bleu ciel */
 		}
+		/* chargement */
+#loader {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  background: white;
+  z-index: 9999;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.loader {
+  border: 16px solid #f3f3f3;
+  border-radius: 50%;
+  border-top: 16px solid #3498db;
+  width: 120px;
+  height: 120px;
+  animation: spin 2s linear infinite;
+}
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Fade-out animation */
+.fade-out {
+  opacity: 0;
+  transition: opacity 1s ease-out;
+}
+    
 	</style>
 </head>
 <body>
+
 	<header>
 		<!-- Navbar Start -->
 		<div class="container-fluid position-relative p-0">
@@ -100,9 +132,15 @@
             </div>
         </nav>
 	</header>
-	<div class="content"><br><br><br><br><br><br>
+	<!-- Loader -->
+	<div id="loader" class="fixed inset-0 bg-white z-50 flex items-center justify-center">
+    <div class="loader"></div>
+  </div>
+	<div class="content"><br><br><br><br><br>
 		<button onclick="window.location.href='inscription.php'">Rejoignez-nous</button>
 	</div>
+
+	
 	<!-- Footer Start -->
     <div class="container-fluid bg-dark text-light mt-5 wow fadeInUp" data-wow-delay="0.1s">
         <div class="container">
@@ -151,6 +189,15 @@
             </div>
         </div>
     </div>
+	<script>
+		
+      //chargement de la page
+  window.addEventListener("load", function () {
+    const loader = document.getElementById('loader');
+    loader.classList.add('fade-out'); // Ajoute l'animation de fondu
+    setTimeout(() => loader.style.display = 'none', 1000); // Masque le loader après l'animation
+  });
+	</script>
     <!-- Footer End -->
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 </body>
