@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Page de Connexion</title>
+    <title>Cnnexion Association</title>
+    
     <style>
         body {
             font-family: times nex roman;
@@ -53,7 +54,7 @@
     </style>
 </head>
 <body>
-
+    
 <?php
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     include_once "conn.php";
@@ -63,7 +64,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $password = $_POST['password'];
 
     // Préparation de la requête pour vérifier les identifiants
-    $stmt = $con->prepare("SELECT statut FROM donateur WHERE adresse = ? AND mdp = ?");
+    $stmt = $con->prepare("SELECT * FROM association WHERE email = ? AND password = ?");
     $stmt->bind_param("ss", $email, $password);
     $stmt->execute();
     $result = $stmt->get_result();
@@ -71,7 +72,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if ($result->num_rows <= 0) {
         echo "<script>alert('Aucun compte trouvé');</script>";
     } else {
-        // Récupération du statut
+        /* Récupération du statut
         $user = $result->fetch_assoc();
         $statut = $user['statut'];
 
@@ -90,7 +91,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             exit();
         } else {
             echo "<script>alert('Statut inconnu');</script>";
-        }
+        }*/
+        header("Location:annonce.php");
     }
 
     // Fermeture de la déclaration et de la connexion
@@ -100,15 +102,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 ?>
 <div class="container">
     <h1>Connexion </h1>
-    <form action="connexion.php" method="POST">
+    <form action="connexionA.php" method="POST">
            <label for="email">email:</label>
         <input type="email" id="email" name="email" required value="<?php if ($_SERVER["REQUEST_METHOD"]=="POST") {echo($email);}?>">
         <label for="password">Mot de passe :</label>
         <input type="password" id="password" name="password" required value="<?php if ($_SERVER["REQUEST_METHOD"]=="POST") {echo($password);}?>">
         <input type="reset" class="btn-cancel" onclick="window.location.href='index.php'" value="Annuler">
         <input type="submit" class="btn-login" value="Se connecter"> 
-        <p>etes vous une association ? <a href="connexionA.php">Se connecter en tant que association</a></p>
     </form>
-</div>
 </body>
 </html>

@@ -37,6 +37,7 @@
                     <p class='card-text'><strong>description:</strong> {$row['description']}</p>  
                         <p class='card-text'>{$row['description']}</p> <!-- Ajoutez ici la description complète -->
                         <a href='afficheannonce.php' class='btn btn-primary'>Retour aux Annonces</a>
+                        <a href='planificationetres.php' class='btn btn-primary'>Repondre à l'annonce</a>
                     </div>
                   </div>";
         } else {

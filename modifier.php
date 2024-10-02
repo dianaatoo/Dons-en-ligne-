@@ -7,7 +7,7 @@
   <style>
     /* Styles généraux */
     body {
-      font-family: Arial, sans-serif;
+      font-family: times new roman;
       margin: 0;
       padding: 0;
       background-color: #f7f7f7;

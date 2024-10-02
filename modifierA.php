@@ -3,11 +3,11 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Modifier une ONG</title>
+  <title>Modifier une ASSOCIATION</title>
   <style>
     /* Styles généraux */
     body {
-      font-family: Arial, sans-serif;
+      font-family: times new roman;
       margin: 0;
       padding: 0;
       background-color: #f7f7f7;
